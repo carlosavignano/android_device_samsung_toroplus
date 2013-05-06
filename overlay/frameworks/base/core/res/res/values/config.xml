@@ -46,26 +46,38 @@
         <item>"mobile_cbs,12,0,2,60000,true"</item>
     </string-array>
 
-    <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering -->
-    <!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
-    <!== [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
-    <integer-array translatable="false" name="config_tether_upstream_types">
-        <item>1</item>
-        <item>4</item>
-        <item>7</item>
-    </integer-array>
+    <!-- List of file paths for USB host busses to exclude from USB host support.
+         For example, if the first USB bus on the device is used to communicate
+         with the modem or some other restricted hardware, add "/dev/bus/usb/001/"
+         to this list.  If this is empty, no parts of the host USB bus will be excluded.
+    -->
+    <string-array name="config_usbHostBlacklist">
+        <!--  /dev/bus/usb/001 is used for the LTE modem -->
+        <item></item>
+    </string-array>
 
     <!-- If the DUN connection for this CDMA device supports more than just DUN -->
-    <!-- traffic you should list them here. -->
-    <!-- If this device is not CDMA this is ignored.  If this list is empty on -->
-    <!-- a DUN-requireing CDMA device, the DUN APN will support -->
-    <!-- just DUN. -->
-    <string-array translatable="false" name="config_cdma_dun_supported_types">
-        <item>"default"</item>
-        <item>"dun"</item>
-        <item>"mms"</item>
-        <item>"supl</item>
-    </string-array>
+        <!-- traffic you should list them here. -->
+        <!-- If this device is not CDMA this is ignored.  If this list is empty on -->
+        <!-- a DUN-requireing CDMA device, the DUN APN will support -->
+        <!-- just DUN. -->
+        <string-array translatable="false" name="config_cdma_dun_supported_types">
+            <item>"default"</item>
+            <item>"dun"</item>
+            <item>"mms"</item>
+            <item>"supl</item>
+        </string-array>
+
+    <!-- If this value is true, The mms content-disposition field is supported correctly.
+         If false, Content-disposition fragments are ignored -->
+    <bool name="config_mms_content_disposition_support">false</bool>
+
+
+    <!-- Bring in Sprint default carrier label strings -->
+
+    <string name="roamingText0">Digital Roaming</string>
+    <string name="roamingText1">Sprint</string>
+    <string name="roamingText2">Digital Roaming</string>
 
     <!-- The VoiceMail default value is displayed to my own number if it is true -->
     <bool name="config_telephony_use_own_number_for_voicemail">true</bool>
