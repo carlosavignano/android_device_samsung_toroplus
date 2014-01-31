@@ -31,4 +31,5 @@ PRODUCT_PACKAGES := \
 	CellBroadcastReceiver
 
 $(call inherit-product, device/samsung/tuna/device.mk)
+$(call inherit-product-if-exists, vendor/samsung/tuna/tuna-vendor.mk)
 $(call inherit-product-if-exists, vendor/samsung/toroplus/toroplus-vendor.mk)
